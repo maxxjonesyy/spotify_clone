@@ -7,6 +7,7 @@ function Dashboard({ user, setUser, token }) {
   const [loading, setLoading] = useState(true);
   const [userPlaylists, setUserPlaylists] = useState();
   const [recentlyPlayed, setRecentlyPlayed] = useState();
+  const [topArtists, setTopArtists] = useState();
 
   const currentTime = new Date().toTimeString().slice(0, 8);
 
@@ -47,12 +48,27 @@ function Dashboard({ user, setUser, token }) {
         };
       })
     );
+  }
 
-    console.log(recentlyPlayed);
+  async function getTopArtists() {
+    const { data } = await axios.get(
+      "https://api.spotify.com/v1/me/top/artists?limit=6&offset=0",
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    setTopArtists(
+      data.items.map((item) => {
+        return {
+          image: item.images[1].url,
+          name: item.name,
+          externalUrl: item.external_urls.spotify,
+        };
+      })
+    );
   }
 
   useEffect(() => {
     getUserPlaylists();
+    getTopArtists();
     getRecentlyPlayed();
 
     setTimeout(() => {
@@ -61,7 +77,7 @@ function Dashboard({ user, setUser, token }) {
   }, []);
 
   return (
-    <div className="h-full w-screen flex flex-col justify-between sm:flex-row">
+    <div className="flex flex-col justify-between sm:flex-row">
       <div className="bg-black sm:w-[300px]">
         <Navbar user={user} setUser={setUser} />
       </div>
@@ -78,7 +94,7 @@ function Dashboard({ user, setUser, token }) {
             userPlaylists.map((playlist, index) => (
               <div
                 key={index}
-                className="flex justify-between items-center w-[350px] rounded backdrop-blur-md transition-all bg-white/5 hover:bg-white/10"
+                className="flex justify-between items-center w-[350px] rounded shadow-sm transition-all bg-white/5 hover:bg-white/10"
               >
                 <div>
                   <img
@@ -103,6 +119,34 @@ function Dashboard({ user, setUser, token }) {
         </div>
 
         <div className="pt-10">
+          <h2 className="text-3xl font-bold">Your Top Artists</h2>
+          <div className="flex flex-wrap gap-8 pt-10">
+            {loading ? (
+              <Loading />
+            ) : (
+              topArtists.map((artist, index) => (
+                <div
+                  key={index}
+                  className="w-[175px] bg-white/5 rounded p-3 shadow-md transition hover:bg-white/10 hover:scale-[1.04]"
+                >
+                  <a href={artist.externalUrl} target="_blank">
+                    <div className="h-[175px]">
+                      <img
+                        src={artist.image}
+                        alt="artist"
+                        className="w-full h-full object-cover rounded"
+                      />
+                    </div>
+
+                    <p className="text-lg pt-3">{artist.name}</p>
+                  </a>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
+        <div className="pt-10">
           <h2 className="text-3xl font-bold">Recently Played</h2>
           <div className="flex flex-col gap-5 pt-10">
             {loading ? (
@@ -111,7 +155,7 @@ function Dashboard({ user, setUser, token }) {
               recentlyPlayed.map((song, index) => (
                 <div
                   key={index}
-                  className="flex justify-between items-center bg-white/5 rounded"
+                  className="flex justify-between items-center bg-white/5 rounded shadow-sm"
                 >
                   <div className="flex items-center">
                     <img
