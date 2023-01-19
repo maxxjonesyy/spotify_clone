@@ -29,46 +29,46 @@ function Navbar({ user, setUser }) {
   }
 
   return (
-    <div className='p-5 text-white bg-black sm:flex flex-col sm:h-screen'>
-      <div className='flex justify-between items-center sm:flex-col sm:items-start'>
-        <div className='sm:flex sm:items-center'>
+    <div className="p-5 text-white bg-black sm:flex flex-col sm:h-full">
+      <div className="flex justify-between items-center sm:flex-col sm:items-start">
+        <div className="sm:flex sm:items-center">
           <img
             onClick={signOutUser}
             src={user.image}
-            className='inline-block w-[50px] rounded-full hover:cursor-pointer sm:w-[75px]'
+            className="inline-block w-[50px] rounded-full hover:cursor-pointer"
           />
-          <p className='inline-block pr-3 pl-3 font-bold text-lg md:text-xl'>
+          <p className="inline-block pr-3 pl-3 font-bold lg:text-xl">
             {user.name}
           </p>
         </div>
-        <div className='sm:hidden'>
+        <div className="sm:hidden">
           <img
-            src='./src/assets/hamburger-icon.svg'
-            alt='menu icon'
+            src="./src/assets/hamburger-icon.svg"
+            alt="menu icon"
             onClick={toggleNav}
-            className='cursor-pointer'
+            className="cursor-pointer"
           />
         </div>
       </div>
 
-      <ul className='nav_items float-right hidden sm:block sm:flex-1 sm:float-none sm:pt-10'>
-        <li className='pb-2.5 transition-all opacity-70 hover:opacity-100'>
+      <ul className="nav_items float-right hidden sm:block sm:flex-1 sm:float-none sm:pt-10">
+        <li className="pb-2.5 transition-all opacity-70 hover:opacity-100">
           <img
-            src='./src/assets/home-icon.svg'
-            alt='search icon'
-            className='inline-block w-[30px]'
+            src="./src/assets/home-icon.svg"
+            alt="search icon"
+            className="inline-block w-[25px]"
           />
-          <span className='font-semibold cursor-pointer hover:text-white align-middle pl-3 sm:text-lg'>
+          <span className="font-semibold cursor-pointer hover:text-white align-middle pl-3">
             Home
           </span>
         </li>
-        <li className='pb-2.5 transition-all opacity-70 hover:opacity-100'>
+        <li className="pb-2.5 transition-all opacity-70 hover:opacity-100">
           <img
-            src='./src/assets/search-icon.svg'
-            alt='search icon'
-            className='inline-block w-[30px]'
+            src="./src/assets/search-icon.svg"
+            alt="search icon"
+            className="inline-block w-[25px]"
           />
-          <span className='font-semibold cursor-pointer hover:text-white align-middle pl-3 sm:text-lg'>
+          <span className="font-semibold cursor-pointer hover:text-white align-middle pl-3">
             Search
           </span>
         </li>
@@ -76,7 +76,7 @@ function Navbar({ user, setUser }) {
 
       <button
         onClick={signOutUser}
-        className='hidden w-full sm:block border rounded p-1.5 transition-all opacity-70 hover:opacity-100'
+        className="hidden w-full sm:block border rounded p-1.5 transition-all opacity-70 hover:opacity-100"
       >
         Logout
       </button>
