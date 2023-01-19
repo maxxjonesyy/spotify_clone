@@ -77,12 +77,12 @@ function Dashboard({ user, setUser, token }) {
   }, []);
 
   return (
-    <div className="flex flex-col justify-between sm:flex-row">
+    <div className="flex flex-col justify-between h-screen sm:flex-row">
       <div className="bg-black sm:w-[300px]">
         <Navbar user={user} setUser={setUser} />
       </div>
 
-      <div className="flex-1 p-10 text-white bg-gradient-to-t from-spotifyGrey to-spotifyBlack">
+      <div className="flex-1 overflow-auto p-10 text-white bg-gradient-to-t from-spotifyGrey to-spotifyBlack">
         <h2 className="text-3xl font-bold">
           {currentTime < 12 ? "Good Morning" : "Good Afternoon"}
         </h2>
