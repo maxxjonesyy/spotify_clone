@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 
-function Navbar({ user, setUser }) {
+function Navbar({ user, setUser, setActiveNav }) {
   const navItems = document.querySelector(".nav_items");
   const [navOpen, setNavOpen] = useState(false);
 
   function signOutUser() {
     setUser("");
+  }
+
+  function navRenderContent(e) {
+    setActiveNav(e.target.innerHTML === "Search" ? true : false);
   }
 
   window.addEventListener("resize", () => {
@@ -58,8 +62,11 @@ function Navbar({ user, setUser }) {
             alt="search icon"
             className="inline-block w-[25px]"
           />
-          <span className="font-semibold cursor-pointer hover:text-white align-middle pl-3">
-            Home
+          <span
+            onClick={navRenderContent}
+            className="font-semibold cursor-pointer hover:text-white align-middle pl-3"
+          >
+            Dashboard
           </span>
         </li>
         <li className="pb-2.5 transition-all opacity-70 hover:opacity-100">
@@ -68,7 +75,10 @@ function Navbar({ user, setUser }) {
             alt="search icon"
             className="inline-block w-[25px]"
           />
-          <span className="font-semibold cursor-pointer hover:text-white align-middle pl-3">
+          <span
+            onClick={navRenderContent}
+            className="font-semibold cursor-pointer hover:text-white align-middle pl-3"
+          >
             Search
           </span>
         </li>
@@ -76,7 +86,7 @@ function Navbar({ user, setUser }) {
 
       <button
         onClick={signOutUser}
-        className="hidden w-full sm:block border rounded p-1.5 transition-all opacity-70 hover:opacity-100"
+        className="hidden w-5/6 mx-auto sm:block p-1.5 rounded-full transition-all border opacity-70 hover:opacity-100"
       >
         Logout
       </button>
