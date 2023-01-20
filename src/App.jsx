@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
+import Home from "./components/Home";
 
 function App() {
   const CLIENT_ID = "dd12b92a35b24500b82ba2bcf25b7774";
@@ -49,12 +49,7 @@ function App() {
   return (
     <div>
       {user ? (
-        <Dashboard
-          user={user}
-          setUser={setUser}
-          token={token}
-          scopes={SCOPES}
-        />
+        <Home user={user} setUser={setUser} token={token} />
       ) : (
         <Login AUTH_URL={AUTH_URL} />
       )}
