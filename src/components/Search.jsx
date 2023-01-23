@@ -110,7 +110,7 @@ function Search({ token, loading, setLoading }) {
           type='text'
           placeholder='What do you want to listen to?'
           id='search'
-          className='w-[290px] p-2.5 rounded-full text-black outline-none text-sm text-center'
+          className='w-full sm:w-[290px] p-2.5 rounded-full text-black outline-none text-sm text-center'
         />
       </form>
 
@@ -122,10 +122,10 @@ function Search({ token, loading, setLoading }) {
         </div>
       ) : (
         <div>
-          <div className='flex gap-10 pt-10 h-[400px]'>
-            <div className='w-1/3'>
+          <div className='flex flex-col gap-10 pt-10 lg:flex-row lg:max-h-[500px]'>
+            <div className='w-full lg:w-1/3'>
               <h2 className='text-3xl font-bold'>Top Result</h2>
-              <div className='flex flex-col justify-center gap-5 p-5 bg-white/5 rounded mt-5'>
+              <div className='flex flex-col justify-center gap-5 p-5 bg-white/5 rounded mt-5 h-[76%]'>
                 <a href={searchedArtist[0].externalUrl} target='_blank'>
                   <img
                     src={searchedArtist[0].image[0].url}
@@ -187,7 +187,7 @@ function Search({ token, loading, setLoading }) {
             </div>
           </div>
 
-          <div className='w-full'>
+          <div className='w-full pt-10'>
             <h2 className='text-3xl font-bold'>Artists</h2>
             <div className='flex flex-wrap gap-8 pt-10'>
               {searchedArtist.map((artist, index) => (

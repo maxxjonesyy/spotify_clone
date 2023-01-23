@@ -96,7 +96,7 @@ function Home({ user, setUser, token }) {
         />
       </div>
 
-      <div className='flex-1 overflow-auto p-10 text-white bg-gradient-to-t from-spotifyGrey to-spotifyBlack'>
+      <div className='flex-1 overflow-auto p-10 text-white bg-gradient-to-b from-spotifyGrey to-spotifyBlack'>
         {activeNav === false ? (
           <>
             <h2 className='text-3xl font-bold'>

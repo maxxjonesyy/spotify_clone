@@ -33,7 +33,7 @@ function Navbar({ user, setUser, setActiveNav }) {
   }
 
   return (
-    <div className='p-5 text-white bg-black sm:flex flex-col sm:h-full sm:pt-10'>
+    <div className='p-5 text-white  sm:flex flex-col sm:h-full sm:pt-10'>
       <div className='flex justify-between items-center sm:flex-col sm:items-start'>
         <div className='sm:flex sm:items-center'>
           <img
