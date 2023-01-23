@@ -47,7 +47,7 @@ function Navbar({ user, setUser, setActiveNav }) {
         </div>
         <div className='sm:hidden'>
           <img
-            src='./src/assets/hamburger-icon.svg'
+            src='/hamburger-icon.svg'
             alt='menu icon'
             onClick={toggleNav}
             className='cursor-pointer'
@@ -58,7 +58,7 @@ function Navbar({ user, setUser, setActiveNav }) {
       <ul className='nav_items float-right hidden sm:block sm:flex-1 sm:float-none sm:pt-10'>
         <li className='pb-2.5 transition-all opacity-70 hover:opacity-100'>
           <img
-            src='./src/assets/home-icon.svg'
+            src='/home-icon.svg'
             alt='search icon'
             className='inline-block w-[25px]'
           />
@@ -71,7 +71,7 @@ function Navbar({ user, setUser, setActiveNav }) {
         </li>
         <li className='pb-2.5 transition-all opacity-70 hover:opacity-100'>
           <img
-            src='./src/assets/search-icon.svg'
+            src='/search-icon.svg'
             alt='search icon'
             className='inline-block w-[25px]'
           />

@@ -43,7 +43,7 @@ function Played({ loading, recentlyPlayed }) {
                 target='_blank'
                 className='w-[40px] mr-5 transition-all opacity-20 hover:opacity-100'
               >
-                <img src='./src/assets/playButton-icon.svg' />
+                <img src='/playButton-icon.svg' />
               </a>
             </div>
           ))

@@ -179,7 +179,7 @@ function Search({ token, loading, setLoading }) {
                       target='_blank'
                       className='w-[40px] mr-5 transition-all opacity-20 hover:opacity-100'
                     >
-                      <img src='./src/assets/playButton-icon.svg' />
+                      <img src='/playButton-icon.svg' />
                     </a>
                   </div>
                 ))}
@@ -202,7 +202,7 @@ function Search({ token, loading, setLoading }) {
                           src={
                             artist.image === undefined ||
                             artist.image.length === 0
-                              ? "./src/assets/default-user.svg"
+                              ? "/default-user.svg"
                               : artist.image[0].url
                           }
                           alt='artist'
