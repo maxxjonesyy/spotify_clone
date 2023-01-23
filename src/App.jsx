@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "./index.css";
+import axios from "axios";
 import Login from "./components/Login";
 import Home from "./components/Home";
 
 function App() {
-  const CLIENT_ID = "dd12b92a35b24500b82ba2bcf25b7774";
-  const REDIRECT_URI = "http://127.0.0.1:5173/";
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-  const SCOPES = `user-read-recently-played user-library-read user-read-email user-read-private user-top-read user-follow-read playlist-read-private playlist-read-collaborative`;
-  const RESPONSE_TYPE = "token";
-  const AUTH_URL = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${SCOPES}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`;
+  const AUTH_URL = `${import.meta.env.VITE_AUTH_ENDPOINT}?client_id=${
+    import.meta.env.VITE_CLIENT_ID
+  }&scope=${import.meta.env.VITE_SCOPES}&redirect_uri=${
+    import.meta.env.VITE_REDIRECT_URI
+  }&response_type=token`;
 
   const [token, setToken] = useState("");
   const [user, setUser] = useState("");
