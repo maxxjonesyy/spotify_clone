@@ -38,10 +38,9 @@ function Home({ user, setUser, token }) {
 
   async function getRecentlyPlayed() {
     const { data } = await axios.get(
-      "https://api.spotify.com/v1/me/player/recently-played?limit=6",
+      "https://api.spotify.com/v1/me/player/recently-played?limit=10",
       { headers: { Authorization: `Bearer ${token}` } }
     );
-
     setRecentlyPlayed(
       data.items.map((item) => {
         return {
@@ -49,6 +48,7 @@ function Home({ user, setUser, token }) {
           songName: item.track.name,
           artistName: item.track.artists[0].name,
           externalUrl: item.track.external_urls.spotify,
+          rating: item.track.explicit,
         };
       })
     );
@@ -56,7 +56,7 @@ function Home({ user, setUser, token }) {
 
   async function getTopArtists() {
     const { data } = await axios.get(
-      "https://api.spotify.com/v1/me/top/artists?limit=6&offset=0",
+      "https://api.spotify.com/v1/me/top/artists?limit=8&offset=0",
       { headers: { Authorization: `Bearer ${token}` } }
     );
     setTopArtists(
@@ -77,16 +77,17 @@ function Home({ user, setUser, token }) {
   }
 
   useEffect(() => {
+    setLoading(true);
     renderDashboard();
 
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 600);
   }, []);
 
   return (
-    <div className="flex flex-col justify-between h-screen sm:flex-row">
-      <div className="bg-black sm:w-[300px]">
+    <div className='flex flex-col justify-between h-screen sm:flex-row'>
+      <div className='bg-black sm:w-[300px]'>
         <Navbar
           user={user}
           setUser={setUser}
@@ -95,10 +96,10 @@ function Home({ user, setUser, token }) {
         />
       </div>
 
-      <div className="flex-1 overflow-auto p-10 text-white bg-gradient-to-t from-spotifyGrey to-spotifyBlack">
+      <div className='flex-1 overflow-auto p-10 text-white bg-gradient-to-t from-spotifyGrey to-spotifyBlack'>
         {activeNav === false ? (
           <>
-            <h2 className="text-3xl font-bold">
+            <h2 className='text-3xl font-bold'>
               {currentTime < 12 ? "Good Morning" : "Good Afternoon"}
             </h2>
             <Playlists userPlaylists={userPlaylists} loading={loading} />
@@ -106,7 +107,7 @@ function Home({ user, setUser, token }) {
             <Played recentlyPlayed={recentlyPlayed} loading={loading} />
           </>
         ) : (
-          <Search token={token} loading={loading} />
+          <Search token={token} loading={loading} setLoading={setLoading} />
         )}
       </div>
     </div>
