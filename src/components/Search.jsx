@@ -189,7 +189,7 @@ function Search({ token, loading, setLoading }) {
 
           <div className='w-full pt-10'>
             <h2 className='text-3xl font-bold'>Artists</h2>
-            <div className='flex flex-wrap gap-8 pt-10'>
+            <div className='flex flex-wrap justify-center md:justify-start gap-8 pt-10'>
               {searchedArtist.map((artist, index) => (
                 <a href={artist.externalUrl} target='_blank'>
                   <div

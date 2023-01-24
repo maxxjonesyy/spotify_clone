@@ -5,7 +5,7 @@ function Artists({ loading, topArtists }) {
   return (
     <div className='pt-10'>
       <h2 className='text-3xl font-bold'>Your Top Artists</h2>
-      <div className='flex flex-wrap gap-8 pt-10'>
+      <div className='flex flex-wrap justify-center md:justify-start gap-8 pt-10'>
         {loading ? (
           <Loading />
         ) : (
