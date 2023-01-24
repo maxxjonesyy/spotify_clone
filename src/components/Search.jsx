@@ -221,7 +221,7 @@ function Search({ token, loading, setLoading }) {
             <h2 className='text-3xl font-bold'>
               {searchedArtist[0].name} Albums
             </h2>
-            <div className='flex flex-wrap gap-8 pt-10'>
+            <div className='flex flex-wrap justify-center md:justify-start gap-8 pt-10'>
               {artistAlbums.map((album, index) => (
                 <div
                   key={index}
