@@ -94,7 +94,7 @@ function Search({ token, loading, setLoading }) {
 
     setTimeout(() => {
       setLoading(false);
-    }, 700);
+    }, 1200);
   }
 
   useEffect(() => {
