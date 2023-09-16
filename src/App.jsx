@@ -11,8 +11,8 @@ function App() {
     import.meta.env.VITE_REDIRECT_URI
   }&response_type=token`;
 
-  const [token, setToken] = useState("");
-  const [user, setUser] = useState("");
+  const [token, setToken] = useState();
+  const [user, setUser] = useState();
 
   async function getActiveUser(token) {
     const { data } = await axios.get("https://api.spotify.com/v1/me", {
