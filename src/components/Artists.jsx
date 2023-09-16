@@ -12,7 +12,7 @@ function Artists({ loading, topArtists }) {
           topArtists.map((artist, index) => (
             <div
               key={index}
-              className='flex flex-col items-center justify-center w-[175px] sm:w-[135px] bg-white/5 rounded p-3 shadow-md transition hover:bg-white/10 hover:scale-[1.04]'
+              className='flex flex-col items-center justify-center w-[135px] md:w-[175px] bg-white/5 rounded p-3 shadow-md transition hover:bg-white/10 hover:scale-[1.04]'
             >
               <a href={artist.externalUrl} target='_blank'>
                 <div className='h-[175px]'>
