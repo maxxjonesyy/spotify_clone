@@ -12,9 +12,5 @@ This app does not allow for the writing of user information, it is for display p
 * TailwindCSS
 
 ## Screenshots
-<img src="https://github.com/maxxjonesyy/spotify_clone/assets/73814371/ca046b86-4c2a-4b79-a38f-d6ec42ed70f5)" width="750">
-<img src="https://github.com/maxxjonesyy/spotify_clone/assets/73814371/714d447e-b7c6-4e24-bb36-3fe124701bc6)" width="750">
-
-
-
+<img src="https://github.com/maxxjonesyy/spotify_clone/assets/73814371/8462cea4-ed27-45cc-a881-3bf935d0edec">
 
